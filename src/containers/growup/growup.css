@@ -160,6 +160,17 @@
     font-size: 16px;
 
 }
+.grow_dope{
+    top:20px;
+    right: 20px;
+}
+.grow_dope_logo{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url("./image/con_lill.png") no-repeat;
+    background-size: 30px;
+}
 
 
 

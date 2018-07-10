@@ -39,6 +39,9 @@ class Growup extends Component {
               <li>体重</li>
             </ul>
           </div>
+          <div className="grow_dope pos_a">
+            <i className="grow_dope_logo"></i>
+          </div>
         </div>
         <div className="growuo_commou  ">
           <div className="growuo_commou_box ">
