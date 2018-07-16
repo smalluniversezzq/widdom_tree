@@ -3,12 +3,28 @@ import './popularity.css';
 import $ from 'jquery';
 import Footer from '../../components/footer/footer.jsx';
 import Header from '../../components/header/header.jsx';
+import headlineimg from './image/headline_img.jpg';
+import header_pic1 from './image/header_pic1.jpg';
+import tab1 from './image/tab1.jpg';
+import tab2 from './image/tab2.jpg';
+import tab3 from './image/tab3.jpg';
+import tab4 from './image/tab4.jpg';
+import tab5 from './image/tab5.jpg';
+import swith1 from './image/swith1.jpg';
+import swith2 from './image/swith2.jpg';
+import swith3 from './image/swith3.jpg';
+import swith4 from './image/swith4.jpg';
+import swith5 from './image/swith5.jpg';
+import swith6 from './image/swith6.jpg';
+import swith7 from './image/swith7.jpg';
 
 class Popular extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      status: '/popularity'
+      status: '/popularity',
+      isHeadlineTab: true,
+      isCircleTab: false
     }
   }
   //Grow up
@@ -18,16 +34,141 @@ class Popular extends Component {
     })
   }
   handleEmail(event) {
-    event.target.name?this.props.router.push(event.target.name) :''
+    event.target.name ? this.props.router.push(event.target.name) : ''
+  }
+  headline_tab() {
+    console.log("头条")
+    this.setState({ isHeadlineTab: true, isCircleTab: false });
+  }
+  circle_tab() {
+    console.log("圈子")
+    this.setState({ isCircleTab: true, isHeadlineTab: false });
+
   }
   render() {
     return (
-      <div className="" style={{ height: document.documentElement.clientHeight }}>
-        <Header name="发现"/>
-        <div className="">
-          
+      <div className="popularity" style={{ minHeight: document.documentElement.clientHeight }}>
+        <Header name="发现" />
+        <div className="header_holder"></div>
+        <div className="popu">
+          <ul className="popu_title_top dis_flex">
+            <li >
+              <img src={tab1} alt="" />
+              <p>儿童专区</p>
+            </li>
+            <li >
+              <img src={tab2} alt="" />
+              <p>天天抽奖</p>
+            </li>
+            <li >
+              <img src={tab3} alt="" />
+              <p>智慧购</p>
+            </li>
+            <li >
+              <img src={tab4} alt="" />
+              <p>智慧讲堂</p>
+            </li>
+            <li >
+              <img src={tab5} alt="" />
+              <p>更多</p>
+            </li>
+          </ul>
         </div>
-        <Footer name={this.state.status} handleEmail={this.handleEmail.bind(this)}/>
+        {/* tab切花 */}
+        <div className="tab_box ">
+          <div className="tab_title ">
+            <ul className="tab_em dis_flex">
+              <li id="headline" className="" className={this.state.isHeadlineTab === true ? 'tab_bottom' : 'tab_bottom_no'}
+                onClick={this.headline_tab.bind(this)}>头条</li>
+              <li id="circle" className={this.state.isCircleTab === true ? 'tab_bottom' : 'tab_bottom_no'}
+                onClick={this.circle_tab.bind(this)}>圈子</li>
+            </ul>
+          </div>
+          <div className="tab_cont " >
+            {/* tab切换 */}
+            <div className="tab_headline dis_none">
+              <div className="headline_tit">
+                <span className="headline_txt">历史竟能这么有趣！98个问题讲孩子听得懂的故宫故事</span>
+                <img src={headlineimg} alt="" />
+                <p className="headline_logo">学习</p>
+              </div>
+              {/* list */}
+              <div className="headline_list dis_flex">
+                <div className="header_list_left">
+                  <p className="headline_list_title">【团购】磨蹭、叛逆、腻歪怎么办？专家教你这么做！</p>
+                  <div className="header_list_container">
+                    <span>小柔妈</span>&nbsp;<span> 3万+浏览</span> &nbsp; <span>521赞</span>
+                  </div>
+                </div>
+                <div className="headline_pic">
+                  <img src={header_pic1} alt="" />
+                </div>
+              </div>
+
+              <div className="headline_list dis_flex">
+                <div className="header_list_left">
+                  <p className="headline_list_title">【团购】磨蹭、叛逆、腻歪怎么办？专家教你这么做！</p>
+                  <div className="header_list_container">
+                    <span>小柔妈</span>&nbsp;<span> 3万+浏览</span> &nbsp; <span>521赞</span>
+                  </div>
+                </div>
+                <div className="headline_pic">
+                  <img src={header_pic1} alt="" />
+                </div>
+              </div>
+
+              <div className="headline_list dis_flex">
+                <div className="header_list_left">
+                  <p className="headline_list_title">【团购】磨蹭、叛逆、腻歪怎么办？专家教你这么做！</p>
+                  <div className="header_list_container">
+                    <span>小柔妈</span>&nbsp;<span> 3万+浏览</span> &nbsp; <span>521赞</span>
+                  </div>
+                </div>
+                <div className="headline_pic">
+                  <img src={header_pic1} alt="" />
+                </div>
+              </div>
+            </div>
+
+            <div className="tab_circle">
+              <div className="circle_swith_box ov_hid ">
+                <ul className="dis_flex circle_swith_w">
+                  <li className="circle_swith">
+                    <img src={swith1} alt="" />
+                    <p>每天一个成语</p>
+                  </li>
+                  <li className="circle_swith">
+                    <img src={swith2} alt="" />
+                    <p>每天一张笑脸</p>
+                  </li>
+                  <li className="circle_swith">
+                    <img src={swith3} alt="" />
+                    <p>今日最萌宝</p>
+                  </li>
+                  <li className="circle_swith">
+                    <img src={swith4} alt="" />
+                    <p>早睡打卡</p>
+                  </li>
+                  <li className="circle_swith">
+                    <img src={swith5} alt="" />
+                    <p>刷牙打卡</p>
+                  </li>
+                  <li className="circle_swith">
+                    <img src={swith6} alt="" />
+                    <p>亲子阅读打卡圈</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="circle_quan">
+                
+            </div>
+          </div>
+        </div>
+        {/* 站位空间 */}
+        <div className="zhuaiwei"></div>
+        <Footer name={this.state.status} handleEmail={this.handleEmail.bind(this)} />
       </div>
     );
   }
