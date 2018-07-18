@@ -29,7 +29,18 @@
     font-size: 14px;
     letter-spacing:2px;
 } 
-.logo_int_pwd{
+.login_phone_number>input{
+    background: #ffffff;
+}
+.logo_int_pwd_no{
+    display:block;
+    width: 22px;
+    height: 30px;
+    background: url('./image/btn_none.jpg') no-repeat;
+    background-size: 100%;
+    right: 0%;
+}
+.logo_int_pwd_yes{
     display:block;
     width: 22px;
     height: 30px;
