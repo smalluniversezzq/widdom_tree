@@ -2,6 +2,12 @@
 .imgheld{
     width: 100%;
 }
+.dis_none{
+    display:none;
+}
+.dis_block{
+    display: block;
+}
 .loginconcainer{
     width: 100%;
     margin-top: 37px;
@@ -40,13 +46,22 @@
     background-size: 100%;
     right: 0%;
 }
+
 .logo_int_pwd_yes{
     display:block;
     width: 22px;
     height: 30px;
-    background: url('./image/btn_none.jpg') no-repeat;
+    background: url('./image/btn_show.jpg') no-repeat;
     background-size: 100%;
     right: 0%;
+}
+.logo_int_pwd_exnt{
+    display:block;
+    width: 22px;
+    height: 30px;
+    background: url('./image/btn_del.jpg') no-repeat;
+    background-size: 100%;
+    right: 30px;
 }
 .login_phone_mima_logo{
     display: block;
