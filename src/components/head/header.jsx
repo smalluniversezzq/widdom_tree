@@ -6,13 +6,16 @@ class Head extends Component {
         this.state = {
         }
     }
-      componentDidMount(){
-      }
+    componentDidMount() {
+
+    }
+    history() { }
     render() {
         return (
             <div className="head">
                 <div className="container">
-                        <i className="retreat" onClick={this.history.bind(this)}> </i>   
+                    {/* onClick={this.history.bind(this)} */}
+                    <i className="retreat"  > </i>
                 </div>
             </div>
         );

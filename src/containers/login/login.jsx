@@ -9,8 +9,8 @@ class Login extends Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            txt: "",
-            switch: false
+            txt: "",   //弹框文字
+            switch: false   //显示隐藏密码
         }
     }
     componentDidMount() {
@@ -22,7 +22,7 @@ class Login extends Component {
         var apptel = $("#phone_num").val();
         console.log(apptel)
         if (apptel.length <= 0) {
-            this.txt = "请输入手机号";
+            // this.txt = "请输入手机号";
             this.setState({
                 txt: "请输入手机号",
             });
@@ -55,7 +55,7 @@ class Login extends Component {
             this.setState({
                 txt: "密码不能为空",
             });
-            $("#txt_del").removeClass("dis_block").addClass("dis_none");
+            $("#pwd_del").removeClass("dis_block").addClass("dis_none");
             $(".alert").show();
         } else if (apppwd.length > 12) {
             this.setState({
@@ -76,16 +76,21 @@ class Login extends Component {
         $("#txt_del").removeClass("dis_block").addClass("dis_none");
     }
     handle() {
-        if($("#phone_num").val() === "15003873032" && $("#login_pwd").val() === "aaa111"){
-            this.props.router.push('/register');
-        }else {
+        if ($("#phone_num").val() !== "15003873032") {
             this.setState({
-                txt:"账号密码不正确,请重新输入"
+                txt: "账号不正确,请重新输入"
             })
             $(".alert").show();
+        } else if ($("#login_pwd").val() !== "aaa111") {
+            this.setState({
+                txt: "密码不正确,请重新输入"
+            })
+            $(".alert").show();
+        } else {
+            this.props.router.push('/register');
         }
         //是否完善入园信息
-        
+
     }
     tabshow() {
         if (this.state.switch == false) {
@@ -115,12 +120,12 @@ class Login extends Component {
                     <div className="login_content">
                         <div className="login_phone_number">
                             <i className="login_phone_number_logo"></i>
-                            <input id="phone_num" className="login_phone_number_logo_int" type="text" onBlur={this.exptel.bind(this)} />
+                            <input id="phone_num" className="login_phone_number_logo_int" type="text" onBlur={this.exptel.bind(this)} autocomplete="off" />
                             <i id="txt_del" className="logo_int_pwd_exnt position_ab dis_none" onClick={this.textdel.bind(this)}></i>
                         </div>
                         <div className="login_phone_number position_re">
                             <i className="login_phone_mima_logo"></i>
-                            <input id="login_pwd" className="login_phone_number_logo_int " onBlur={this.exppwd.bind(this)} type="password" />
+                            <input id="login_pwd" className="login_phone_number_logo_int " onBlur={this.exppwd.bind(this)} type="password" autocomplete="off" />
                             <i id="pwd_del" className="logo_int_pwd_exnt position_ab dis_none" onClick={this.delint.bind(this)}></i>
                             <i id="pwd_switch" className="logo_int_pwd_no position_ab" onClick={this.tabshow.bind(this)}></i>
                         </div>
