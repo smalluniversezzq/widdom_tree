@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   hrefs(url) {
+    
     this.props.router.push(url);
   }
   render() {

@@ -145,7 +145,7 @@ class Login extends Component {
                 </div>
                 <div className="login_foot">
                     <div className="wexin_container">
-                        <p>微信登录 {this.state.txt}</p>
+                        <p>微信登录 </p>
                         <img className="wenxin_logo" src={wxlogo} alt="" />
                     </div>
                 </div>

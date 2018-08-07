@@ -2,17 +2,42 @@ import React, { Component } from 'react';
 import './verification.css';
 // import Head from '../../components/head/header.jsx';
 import $ from 'jquery';
+import Alert from '../../components/alert/alert.jsx';
 
 class Verification extends Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
+            txt: ''
         }
     }
     componentDidMount() {
         $("body").css({
             height: document.documentElement.clientHeight
         })
+    }
+    submits() {
+        var usernum = $("#identity").val();
+        let tel = $('#tel').val();
+        var reg = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/;
+        if (usernum.length == 0) {
+            this.setState({
+                txt: '讯前表单不能为空'
+            });
+            $(".alert").fadeIn();
+        }else if (tel.length == 0) {
+            this.setState({
+                txt: '手机号不能为空'
+            });
+            $(".alert").fadeIn();
+        } else if (!reg.test(tel)) {
+            this.setState({
+                txt: '手机格式不正确'
+            });
+            $('.alert').fadeIn();
+        }else{
+            this.props.router.push('/home')
+        }
     }
     render() {
         return (
@@ -40,18 +65,19 @@ class Verification extends Component {
                         <p>身份(请问您是院长、教师或家长)</p>
                     </div>
                     <div className="ver_input">
-                        <input type="text"  placeholder="请输入"/>
+                        <input id="identity" type="text" placeholder="请输入" />
                     </div>
                     <div className="verxqbd_number">
                         <p>请问您登录账号(手机号)是多少</p>
                     </div>
                     <div className="ver_input">
-                        <input type="text"  placeholder="请输入"/>
+                        <input id="tel" type="text" placeholder="请输入" />
                     </div>
-                    <div className="ver_btn">
+                    <div className="ver_btn" onClick={this.submits.bind(this)}>
                         提交
                     </div>
                 </div>
+                <Alert name={this.state.txt}> </Alert>
             </div>
         );
     }
