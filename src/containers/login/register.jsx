@@ -12,7 +12,6 @@ class Register extends Component {
         }
     }
     componentDidMount() {
-
     }
     handle() {
         this.props.router.push('/verification');
@@ -33,10 +32,13 @@ class Register extends Component {
             $(".alert").show()
         }
     }
+    historie(){
+      
+    }
     render() {
         return (
             <div className="Register">
-                <Head />
+                <Head  onClick={this.historie.bind(this)}/>
                 <div className="register_cantainer">
 
                     <div className="reg_up">
